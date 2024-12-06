@@ -1,26 +1,52 @@
 import React from 'react';
 
-import logo from './logo.svg';
 import './App.css';
+
+import { ConfigProvider, Layout, theme } from 'antd';
+import { Route, Routes } from 'react-router-dom';
+
+import LayoutHeader from './components/LayoutHeader/Header';
+import MarketPlacePage from './pages/MarketPlacePage/MarketPlacePage';
+
+const { Content, Footer } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ConfigProvider
+        theme={{
+          algorithm: theme.darkAlgorithm,
+          token: {
+            fontFamily: 'drone',
+          },
+          components: {
+            Button: {
+              colorPrimary:
+                'linear-gradient(90deg, rgba(218,69,143,1) 0%, rgba(218,52,221,1) 100%)',
+              colorPrimaryActive:
+                'linear-gradient(90deg, rgba(218,69,143,1) 0%, rgba(218,52,221,1) 100%)',
+              colorPrimaryHover:
+                'linear-gradient(90deg, rgba(218,69,143,1) 0%, rgba(218,52,221,1) 100%)',
+              lineWidth: 0,
+            },
+          },
+        }}
+      >
+        <Layout>
+          <LayoutHeader />
+
+          <Content>
+            <Routes>
+              <Route path="home" element={<MarketPlacePage />} />
+              <Route path="about-us" element={<MarketPlacePage />} />
+              <Route path="marketplace-roadmap" element={<MarketPlacePage />} />
+              <Route path="white-paper" element={<MarketPlacePage />} />
+            </Routes>
+          </Content>
+          <Footer />
+        </Layout>
+      </ConfigProvider>
+    </>
   );
 }
 
