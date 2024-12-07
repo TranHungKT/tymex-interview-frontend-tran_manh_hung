@@ -39,6 +39,7 @@ function App() {
             <Routes>
               <Route path="home" element={<MarketPlacePage />} />
               <Route path="about-us" element={<MarketPlacePage />} />
+              <Route path="our-teams" element={<MarketPlacePage />} />
               <Route path="marketplace-roadmap" element={<MarketPlacePage />} />
               <Route path="white-paper" element={<MarketPlacePage />} />
             </Routes>

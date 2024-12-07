@@ -11,7 +11,7 @@ const items = [
 
 export default function MenuLanguage() {
   return (
-    <CustomMenu mode="vertical">
+    <CustomMenu mode="vertical" style={{ backgroundColor: 'transparent' }}>
       {items.map((item) => (
         <Item key={item.key}>{item.label}</Item>
       ))}

@@ -13,7 +13,7 @@ import MenuLanguage from '../MenuLanguage/MenuLanguage';
 
 export default function LayoutHeader() {
   return (
-    <Header>
+    <Header className="header-container">
       <Row gutter={16} justify="space-between">
         <Col lg={{ span: 12 }} md={{ span: 8 }} sm={{ span: 0 }} xs={{ span: 0 }}>
           <MenuHeader mode="horizontal" />
@@ -25,9 +25,9 @@ export default function LayoutHeader() {
         </Col>
         <Col lg={{ span: 6 }} md={{ span: 8 }} sm={{ span: 12 }} xs={{ span: 18 }}>
           <Button type="primary">Connect Wallet</Button>
-          <div className="language-button">
+          <div className="header_language-button">
             <Popover content={<MenuLanguage />}>
-              <FontAwesomeIcon icon={faGlobe} className="global-icon" />
+              <FontAwesomeIcon icon={faGlobe} className="header_global-icon" />
               <FontAwesomeIcon icon={faCaretDown} />
             </Popover>
           </div>
