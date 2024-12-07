@@ -1,0 +1,13 @@
+.header-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.header_language-button {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.header_global-icon {
+  margin-right: 0.5rem;
+}
