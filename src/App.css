@@ -1,4 +1,14 @@
 @font-face {
   font-family: 'drone';
-  src: url('../public/assets/fonts/dronerangerpro_bold.otf');
+  src: url('../public/assets/fonts/drone-ranger-pro_bold.otf');
+}
+
+@font-face {
+  font-family: 'drone-black';
+  src: url('../public/assets/fonts/drone-ranger-pro_black.otf');
+}
+
+@font-face {
+  font-family: 'inter';
+  src: url('../public/assets/fonts/inter-medium.woff');
 }

@@ -1,0 +1,6 @@
+.product-list__container {
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: auto;
+  margin-bottom: 5rem;
+}

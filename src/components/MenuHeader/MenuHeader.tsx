@@ -26,7 +26,11 @@ export default function MenuHeader({ mode = 'horizontal' }: MenuHeaderProps) {
   return (
     <CustomMenu mode={mode} style={{ backgroundColor: 'transparent' }}>
       {items.map((item) => (
-        <Item key={item.key} onClick={() => navigate(item.localUrl)}>
+        <Item
+          key={item.key}
+          onClick={() => navigate(item.localUrl)}
+          style={{ fontFamily: 'drone' }}
+        >
           {item.label}
         </Item>
       ))}
