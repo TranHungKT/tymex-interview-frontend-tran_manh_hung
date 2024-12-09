@@ -15,16 +15,16 @@ function timeout(ms: any) {
 }
 
 const getCategory = (category?: string) => {
-  if (!category) {
-    return undefined;
+  if (category === 'All' || !category) {
+    return '';
   }
-  return `category_like=${category}`;
+  return `&category_like=${category}`;
 };
 
 export const fetchProducts = async (startAt: number, category?: string): Promise<Product[]> => {
   await timeout(2000);
   const response = await fetch(
-    `${BASE_URL}products?_start=${startAt}&_limit=${LIMIT}&${getCategory(category)}`,
+    `${BASE_URL}products?_start=${startAt}&_limit=${LIMIT}${getCategory(category)}`,
   );
   if (!response.ok) {
     throw new Error('Network response was not ok');

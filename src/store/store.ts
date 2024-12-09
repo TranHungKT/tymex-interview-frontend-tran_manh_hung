@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 
+import productReducer from './reducers/productReducer';
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    products: productReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
