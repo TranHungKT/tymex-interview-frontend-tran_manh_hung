@@ -2,6 +2,7 @@ import React from 'react';
 
 import './App.css';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ConfigProvider, Layout, theme } from 'antd';
 import { Route, Routes } from 'react-router-dom';
 
@@ -9,15 +10,16 @@ import LayoutHeader from './components/LayoutHeader/Header';
 import MarketPlacePage from './pages/MarketPlacePage/MarketPlacePage';
 
 const { Content, Footer } = Layout;
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <ConfigProvider
         theme={{
           algorithm: theme.darkAlgorithm,
           token: {
-            fontFamily: 'drone',
+            fontFamily: 'inter',
           },
           components: {
             Button: {
@@ -47,7 +49,7 @@ function App() {
           <Footer />
         </Layout>
       </ConfigProvider>
-    </>
+    </QueryClientProvider>
   );
 }
 

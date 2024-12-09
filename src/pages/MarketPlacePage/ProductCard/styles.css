@@ -1,0 +1,40 @@
+.product-card__cover-image {
+  object-fit: fill;
+}
+
+.product-card__tier {
+  position: absolute;
+  width: fit-content !important;
+  top: 1.5rem;
+  left: 1.5rem;
+  border-radius: 5px !important;
+  padding: 5px 5px;
+  background: hsla(0, 0%, 0%, 0.5);
+  color: white;
+}
+
+.product-card__heart-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: fit-content !important;
+}
+
+.product-card__meta {
+  margin-left: -1rem;
+  margin-top: 1rem;
+}
+
+.product-card__price-image {
+  object-fit: contain;
+  margin-right: 0.25rem;
+}
+
+.product-card__bold-text {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.product-card__user-name {
+  margin-left: 1rem;
+}

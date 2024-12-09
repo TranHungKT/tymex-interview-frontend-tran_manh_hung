@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "category": "All"
+  },
+  {
+    "id": 2,
+    "category": "Upper Body"
+  },
+  {
+    "id": 2,
+    "category": "Lower Body"
+  },
+  {
+    "id": 3,
+    "category": "Hat"
+  },
+  {
+    "id": 4,
+    "category": "Shoes"
+  },
+  {
+    "id": 5,
+    "category": "Accessory"
+  },
+  {
+    "id": 6,
+    "category": "Legendary"
+  },
+  {
+    "id": 7,
+    "category": "Mythic"
+  },
+  {
+    "id": 8,
+    "category": "Rare"
+  },
+  {
+    "id": 9,
+    "category": "Epic"
+  }
+]
