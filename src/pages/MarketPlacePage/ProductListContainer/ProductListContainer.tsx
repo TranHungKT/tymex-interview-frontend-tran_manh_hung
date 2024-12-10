@@ -24,10 +24,16 @@ export default function ProductListContainer() {
       'getProducts',
       {
         startAt,
+        searchText: filter.searchText,
         categoryFilter: filter.category,
+        tier: filter.tier,
+        theme: filter.theme,
+        createdAt: filter.createdAt,
+        price: filter.price,
+        priceRange: filter.priceRange,
       },
     ],
-    queryFn: () => fetchProducts(startAt, filter.category),
+    queryFn: () => fetchProducts(startAt, filter),
     refetchInterval: 60000,
   });
 

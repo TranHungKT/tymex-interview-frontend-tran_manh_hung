@@ -2,18 +2,27 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { Product } from '../../models/Product';
 
-interface ProductState {
+export interface ProductState {
   products: Product[];
   startAt: number;
   filter: {
     category?: string;
+    searchText?: string;
+    priceRange?: number[];
+    tier?: string;
+    theme?: string;
+    createdAt?: string;
+    price?: string;
   };
 }
 
 const initialState: ProductState = {
   products: [],
   startAt: 0,
-  filter: {},
+  filter: {
+    price: 'asc',
+    createdAt: 'desc',
+  },
 };
 
 export const productSlice = createSlice({
