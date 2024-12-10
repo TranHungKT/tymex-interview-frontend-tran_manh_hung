@@ -38,6 +38,12 @@ function App() {
                 paddingBlock: 22,
                 paddingInline: 16,
               },
+              Tooltip: {
+                colorBgSpotlight: 'transparent',
+              },
+              Slider: {
+                handleActiveColor: 'white',
+              },
             },
           }}
         >
