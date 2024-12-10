@@ -11,11 +11,37 @@ import {
   TIER_SELECTION,
   TIME_SELECTION,
 } from '../../../constants/constants';
+import { filterProducts, ProductState } from '../../../store/reducers/productReducer';
+import { useAppDispatch, useAppSelector } from '../../../store/store';
 
 export default function SearchFormContainer() {
+  const { searchText, priceRange, tier, theme, createdAt, price } = useAppSelector(
+    (state) => state.products.filter,
+  );
+  const dispatch = useAppDispatch();
+
+  const handleSubmit = (values: ProductState['filter']) => {
+    dispatch(filterProducts(values));
+  };
+
+  const handleResetFilter = () => {
+    dispatch(filterProducts({}));
+  };
+
   return (
-    <Form layout="vertical">
-      <Form.Item name="quickSearch">
+    <Form
+      layout="vertical"
+      initialValues={{
+        searchText,
+        tier,
+        theme,
+        createdAt,
+        price,
+        priceRange,
+      }}
+      onFinish={handleSubmit}
+    >
+      <Form.Item name="searchText">
         <Input
           size="large"
           placeholder="Quick search"
@@ -26,9 +52,9 @@ export default function SearchFormContainer() {
 
       <Form.Item label="TIER" layout="vertical" name="tier">
         <Select>
-          {TIER_SELECTION.map((tier) => (
-            <Select.Option key={tier.id} value={tier.value}>
-              {tier.label}
+          {TIER_SELECTION.map((tierItem) => (
+            <Select.Option key={tierItem.id} value={tierItem.value}>
+              {tierItem.label}
             </Select.Option>
           ))}
         </Select>
@@ -36,34 +62,38 @@ export default function SearchFormContainer() {
 
       <Form.Item label="THEME" layout="vertical" name="theme">
         <Select>
-          {THEME_SELECTION.map((theme) => (
-            <Select.Option key={theme.id} value={theme.value}>
-              {theme.label}
+          {THEME_SELECTION.map((themeItem) => (
+            <Select.Option key={themeItem.id} value={themeItem.value}>
+              {themeItem.label}
             </Select.Option>
           ))}
         </Select>
       </Form.Item>
-      <Form.Item label="TIME" layout="vertical" name="time">
+      <Form.Item label="TIME" layout="vertical" name="createdAt">
         <Select>
-          {TIME_SELECTION.map((time) => (
-            <Select.Option key={time.id} value={time.value}>
-              {time.label}
+          {TIME_SELECTION.map((timeItem) => (
+            <Select.Option key={timeItem.id} value={timeItem.value}>
+              {timeItem.label}
             </Select.Option>
           ))}
         </Select>
       </Form.Item>
-      <Form.Item label="PRICE" layout="vertical" name="priceSort">
+      <Form.Item label="PRICE" layout="vertical" name="price">
         <Select>
-          {PRICE_SELECTION.map((price) => (
-            <Select.Option key={price.id} value={price.value}>
-              {price.label}
+          {PRICE_SELECTION.map((priceItem) => (
+            <Select.Option key={priceItem.id} value={priceItem.value}>
+              {priceItem.label}
             </Select.Option>
           ))}
         </Select>
       </Form.Item>
       <Row>
         <Form.Item label={null}>
-          <Button icon={<FontAwesomeIcon icon={faTimesCircle} color="#FBC625" />} variant="text">
+          <Button
+            icon={<FontAwesomeIcon icon={faTimesCircle} color="#FBC625" />}
+            variant="text"
+            onClick={handleResetFilter}
+          >
             Reset filter
           </Button>
         </Form.Item>

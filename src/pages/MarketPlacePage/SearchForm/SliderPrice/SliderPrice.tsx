@@ -17,14 +17,14 @@ const marks: SliderSingleProps['marks'] = {
     label: '200 ETH',
   },
 };
+
 export default function SliderPrice() {
   return (
-    <Form.Item label="PRICE" name="priceSlider" layout="vertical">
+    <Form.Item label="PRICE" name="priceRange" layout="vertical">
       <Slider
         range
         max={200}
         min={0.01}
-        defaultValue={[0.01, 200]}
         marks={marks}
         onChange={() => {}}
         onChangeComplete={() => {}}

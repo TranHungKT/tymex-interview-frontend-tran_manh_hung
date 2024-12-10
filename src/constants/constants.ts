@@ -7,24 +7,19 @@ export const TIER_SELECTION = [
     id: 1,
   },
   {
-    label: 'Epic',
-    value: 'Epic',
+    label: 'Premium',
+    value: 'Premium',
     id: 2,
   },
   {
-    label: 'Legendary',
-    value: 'Legendary',
+    label: 'Deluxe',
+    value: 'Deluxe',
     id: 3,
   },
   {
-    label: 'Rare',
-    value: 'Rare',
+    label: 'Basic',
+    value: 'Basic',
     id: 4,
-  },
-  {
-    label: 'Common',
-    value: 'Common',
-    id: 5,
   },
 ];
 
@@ -35,8 +30,8 @@ export const THEME_SELECTION = [
     id: 1,
   },
   {
-    label: 'New Year',
-    value: 'New Year',
+    label: 'Colorful',
+    value: 'Colorful',
     id: 2,
   },
   {
@@ -45,13 +40,13 @@ export const THEME_SELECTION = [
     id: 3,
   },
   {
-    label: 'Christmas',
-    value: 'Christmas',
+    label: 'Light',
+    value: 'Light',
     id: 4,
   },
   {
-    label: 'Summer',
-    value: 'Summer',
+    label: 'Dark',
+    value: 'Dark',
     id: 5,
   },
 ];
@@ -59,12 +54,12 @@ export const THEME_SELECTION = [
 export const TIME_SELECTION = [
   {
     label: 'Latest',
-    value: 'Latest',
+    value: 'desc',
     id: 1,
   },
   {
     label: 'Oldest',
-    value: 'Oldest',
+    value: 'asc',
     id: 2,
   },
 ];
@@ -72,12 +67,12 @@ export const TIME_SELECTION = [
 export const PRICE_SELECTION = [
   {
     label: 'Low to High',
-    value: 'Low to High',
+    value: 'asc',
     id: 1,
   },
   {
     label: 'High to Low',
-    value: 'High to Low',
+    value: 'desc',
     id: 2,
   },
 ];
