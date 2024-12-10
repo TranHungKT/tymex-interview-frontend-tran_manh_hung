@@ -44,6 +44,9 @@ function App() {
               Slider: {
                 handleActiveColor: 'white',
               },
+              Select: {
+                singleItemHeightLG: 44,
+              },
             },
           }}
         >

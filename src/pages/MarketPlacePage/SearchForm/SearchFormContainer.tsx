@@ -46,12 +46,13 @@ export default function SearchFormContainer() {
           size="large"
           placeholder="Quick search"
           prefix={<FontAwesomeIcon icon={faSearch} />}
+          style={{ height: '44px' }}
         />
       </Form.Item>
       <SliderPrice />
 
       <Form.Item label="TIER" layout="vertical" name="tier">
-        <Select>
+        <Select size="large">
           {TIER_SELECTION.map((tierItem) => (
             <Select.Option key={tierItem.id} value={tierItem.value}>
               {tierItem.label}
@@ -61,7 +62,7 @@ export default function SearchFormContainer() {
       </Form.Item>
 
       <Form.Item label="THEME" layout="vertical" name="theme">
-        <Select>
+        <Select size="large">
           {THEME_SELECTION.map((themeItem) => (
             <Select.Option key={themeItem.id} value={themeItem.value}>
               {themeItem.label}
@@ -70,7 +71,7 @@ export default function SearchFormContainer() {
         </Select>
       </Form.Item>
       <Form.Item label="TIME" layout="vertical" name="createdAt">
-        <Select>
+        <Select size="large">
           {TIME_SELECTION.map((timeItem) => (
             <Select.Option key={timeItem.id} value={timeItem.value}>
               {timeItem.label}
@@ -79,7 +80,7 @@ export default function SearchFormContainer() {
         </Select>
       </Form.Item>
       <Form.Item label="PRICE" layout="vertical" name="price">
-        <Select>
+        <Select size="large">
           {PRICE_SELECTION.map((priceItem) => (
             <Select.Option key={priceItem.id} value={priceItem.value}>
               {priceItem.label}
