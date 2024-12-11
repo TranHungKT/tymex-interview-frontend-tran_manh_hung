@@ -11,9 +11,6 @@ const IMAGE_URL = [
 ];
 
 const LIMIT = 20;
-function timeout(ms: any) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 const getCategory = (category?: string) => {
   if (category === 'All' || !category) {
@@ -67,7 +64,6 @@ export const fetchProducts = async (
   startAt: number,
   filter: ProductState['filter'],
 ): Promise<Product[]> => {
-  await timeout(2000);
   const response = await fetch(
     `${BASE_URL}products?_start=${startAt}&_limit=${LIMIT}${getCategory(filter.category)}${getTier(
       filter.tier,
@@ -75,6 +71,7 @@ export const fetchProducts = async (
       filter.searchText,
     )}${getPriceRange(filter.priceRange)}`,
   );
+
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }

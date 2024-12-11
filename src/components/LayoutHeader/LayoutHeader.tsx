@@ -3,13 +3,13 @@ import React from 'react';
 import { MenuOutlined } from '@ant-design/icons';
 import { faCaretDown, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Col, Popover, Row } from 'antd';
-import { Header } from 'antd/es/layout/layout';
+import { Button, Col, Layout, Popover, Row } from 'antd';
 
 import './styles.css';
 
 import MenuHeader from '../MenuHeader/MenuHeader';
 import MenuLanguage from '../MenuLanguage/MenuLanguage';
+const { Header } = Layout;
 
 export default function LayoutHeader() {
   return (

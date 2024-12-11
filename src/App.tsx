@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
 import LayoutFooter from './components/LayoutFooter/LayoutFooter';
-import LayoutHeader from './components/LayoutHeader/Header';
+import LayoutHeader from './components/LayoutHeader/LayoutHeader';
 import MarketPlacePage from './pages/MarketPlacePage/MarketPlacePage';
 import { store } from './store/store';
 
@@ -56,6 +56,7 @@ function App() {
 
             <Content>
               <Routes>
+                <Route path="/" element={<MarketPlacePage />} />
                 <Route path="home" element={<MarketPlacePage />} />
                 <Route path="about-us" element={<MarketPlacePage />} />
                 <Route path="our-teams" element={<MarketPlacePage />} />
