@@ -59,15 +59,18 @@ export const getPriceRange = (priceRange?: number[]) => {
 
   return range;
 };
+
 const timeOut = () => {
   return new Promise((resolve) => {
-    setTimeout(resolve, 2000);
+    setTimeout(resolve, 1000);
   });
 };
+
 export const fetchProducts = async (
   startAt: number,
   filter: ProductState['filter'],
 ): Promise<Product[]> => {
+  // temporary to show loading
   await timeOut();
   const response = await fetch(
     `${BASE_URL}products?_start=${startAt}&_limit=${LIMIT}${getCategory(filter.category)}${getTier(
