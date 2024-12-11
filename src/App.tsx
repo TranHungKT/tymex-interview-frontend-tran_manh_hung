@@ -56,6 +56,7 @@ function App() {
 
             <Content>
               <Routes>
+                <Route path="/" element={<MarketPlacePage />} />
                 <Route path="home" element={<MarketPlacePage />} />
                 <Route path="about-us" element={<MarketPlacePage />} />
                 <Route path="our-teams" element={<MarketPlacePage />} />
