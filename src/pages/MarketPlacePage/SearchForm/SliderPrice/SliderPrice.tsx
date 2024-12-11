@@ -1,33 +1,48 @@
 import React from 'react';
 
-import { Button, Form, Slider, SliderSingleProps } from 'antd';
+import { Button, Form, Slider, SliderSingleProps, Typography } from 'antd';
 const marks: SliderSingleProps['marks'] = {
   0: {
     style: {
-      marginTop: '2rem',
+      marginTop: '1rem',
       color: '#D6D6D6',
+      transform: 'translateX(-10%)',
     },
     label: '0.01 ETH',
   },
   200: {
     style: {
-      marginTop: '2rem',
+      marginTop: '1rem',
       color: '#D6D6D6',
+      transform: 'translateX(-75%)',
     },
     label: '200 ETH',
   },
 };
 
-export default function SliderPrice() {
+interface SliderPriceProps {
+  onChange: (values: number[]) => void;
+}
+
+export default function SliderPrice({ onChange }: SliderPriceProps) {
   return (
-    <Form.Item label="PRICE" name="priceRange" layout="vertical">
+    <Form.Item
+      label={
+        <Typography.Title level={5} color="#FFFFFF">
+          PRICE
+        </Typography.Title>
+      }
+      name="priceRange"
+      layout="vertical"
+    >
       <Slider
+        data-testId="teststst"
         range
         max={200}
         min={0.01}
+        defaultValue={[0.01, 200]}
         marks={marks}
-        onChange={() => {}}
-        onChangeComplete={() => {}}
+        onChangeComplete={onChange}
         styles={{
           track: {
             background: 'transparent',

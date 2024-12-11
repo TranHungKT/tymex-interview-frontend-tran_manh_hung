@@ -10,11 +10,8 @@
 }
 
 .marketplace__footer-image {
-  background-image: url('/public/assets/images/frame-footer.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
-  background-attachment: fixed;
-  background-position: 50% 50%;
-  height: 25vh;
+  width: 100%;
+  margin-top: 3rem;
+  height: 15%;
+  object-fit: contain;
 }

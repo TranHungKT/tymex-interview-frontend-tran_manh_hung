@@ -12,39 +12,39 @@ const IMAGE_URL = [
 
 const LIMIT = 20;
 
-const getCategory = (category?: string) => {
+export const getCategory = (category?: string) => {
   if (category === 'All' || !category) {
     return '';
   }
   return `&category_like=${category}`;
 };
 
-const getTier = (tier?: string) => {
+export const getTier = (tier?: string) => {
   if (tier === 'All' || !tier) {
     return '';
   }
   return `&tier_like=${tier}`;
 };
 
-const getTheme = (theme?: string) => {
+export const getTheme = (theme?: string) => {
   if (theme === 'All' || !theme) {
     return '';
   }
   return `&theme_like=${theme}`;
 };
 
-const getPriceSort = (priceSort?: string, createdAt?: string) => {
+export const getPriceSort = (priceSort?: string, createdAt?: string) => {
   return `&_sort=price,createdAt&_order=${priceSort ?? 'asc'},${createdAt ?? 'desc'}`;
 };
 
-const getQuickSearchText = (searchText?: string) => {
+export const getQuickSearchText = (searchText?: string) => {
   if (!searchText) {
     return '';
   }
   return `&q=${searchText}`;
 };
 
-const getPriceRange = (priceRange?: number[]) => {
+export const getPriceRange = (priceRange?: number[]) => {
   if (!priceRange?.length) {
     return '';
   }
@@ -59,11 +59,16 @@ const getPriceRange = (priceRange?: number[]) => {
 
   return range;
 };
-
+const timeOut = () => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 2000);
+  });
+};
 export const fetchProducts = async (
   startAt: number,
   filter: ProductState['filter'],
 ): Promise<Product[]> => {
+  await timeOut();
   const response = await fetch(
     `${BASE_URL}products?_start=${startAt}&_limit=${LIMIT}${getCategory(filter.category)}${getTier(
       filter.tier,

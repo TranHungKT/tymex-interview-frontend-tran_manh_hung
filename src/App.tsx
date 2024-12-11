@@ -9,6 +9,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import LayoutFooter from './components/LayoutFooter/LayoutFooter';
 import LayoutHeader from './components/LayoutHeader/LayoutHeader';
+import { MENU_HEADER_URL } from './constants/constants';
 import MarketPlacePage from './pages/MarketPlacePage/MarketPlacePage';
 import { store } from './store/store';
 
@@ -57,11 +58,11 @@ function App() {
             <Content>
               <Routes>
                 <Route path="/" element={<MarketPlacePage />} />
-                <Route path="home" element={<MarketPlacePage />} />
-                <Route path="about-us" element={<MarketPlacePage />} />
-                <Route path="our-teams" element={<MarketPlacePage />} />
-                <Route path="marketplace-roadmap" element={<MarketPlacePage />} />
-                <Route path="white-paper" element={<MarketPlacePage />} />
+                <Route path={MENU_HEADER_URL.Home} element={<MarketPlacePage />} />
+                <Route path={MENU_HEADER_URL.AboutUs} />
+                <Route path={MENU_HEADER_URL.OurTeams} />
+                <Route path={MENU_HEADER_URL.MarketplaceRoadmap} element={<MarketPlacePage />} />
+                <Route path={MENU_HEADER_URL.WhitePaper} />
               </Routes>
             </Content>
 

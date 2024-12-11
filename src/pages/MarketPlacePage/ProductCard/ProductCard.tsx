@@ -31,12 +31,12 @@ export default function ProductCard({ product }: ProductCardProps) {
         <Card.Meta
           className="product-card__meta"
           title={
-            <Row justify={'space-between'}>
-              <Col>
+            <Row justify="space-between" gutter={10} wrap={false}>
+              <Col span={15}>
                 <Typography className="product-card__bold-text">{product.title}</Typography>
               </Col>
-              <Col>
-                <Row>
+              <Col span={9}>
+                <Row justify="end">
                   <img
                     src="/assets/images/price.png"
                     alt="price"
