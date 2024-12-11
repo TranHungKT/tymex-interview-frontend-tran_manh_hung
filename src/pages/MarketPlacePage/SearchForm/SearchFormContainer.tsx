@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Col, Form, Input, Row, Select, Typography } from 'antd';
+import _debounce from 'lodash/debounce';
 
 import SliderPrice from './SliderPrice/SliderPrice';
 import {
@@ -13,8 +14,9 @@ import {
 } from '../../../constants/constants';
 import { filterProducts, ProductState } from '../../../store/reducers/productReducer';
 import { useAppDispatch, useAppSelector } from '../../../store/store';
-
 export default function SearchFormContainer() {
+  const [searchTextState, setSearchTextState] = useState('');
+
   const filter = useAppSelector((state) => state.products.filter);
   const { searchText, priceRange, tier, theme, createdAt, price } = filter;
   const dispatch = useAppDispatch();
@@ -36,6 +38,21 @@ export default function SearchFormContainer() {
     );
   };
 
+  const handleSearch = _debounce((value: string) => {
+    dispatch(
+      filterProducts({
+        ...filter,
+        searchText: value,
+      }),
+    );
+  }, 1000);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSearchTextState(value);
+    handleSearch(value);
+  };
+
   return (
     <Form
       layout="vertical"
@@ -55,6 +72,8 @@ export default function SearchFormContainer() {
           placeholder="Quick search"
           prefix={<FontAwesomeIcon icon={faSearch} />}
           style={{ height: '44px' }}
+          onChange={handleChange}
+          value={searchTextState}
         />
       </Form.Item>
       <SliderPrice onChange={handleChangePrice} />
