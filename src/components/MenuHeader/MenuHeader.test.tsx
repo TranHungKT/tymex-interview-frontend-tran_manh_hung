@@ -3,7 +3,8 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import MenuHeader, { MENU_HEADER_ITEMS } from './MenuHeader';
+import MenuHeader from './MenuHeader';
+import { MENU_HEADER_ITEMS } from '../../constants/constants';
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate,

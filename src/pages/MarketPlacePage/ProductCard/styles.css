@@ -21,8 +21,9 @@
 }
 
 .product-card__meta {
-  margin-left: -1rem;
+  /* margin-left: -1rem; */
   margin-top: 1rem;
+  margin: 0rem;
 }
 
 .product-card__price-image {
@@ -33,6 +34,8 @@
 .product-card__bold-text {
   font-weight: bold;
   font-size: 1.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-card__user-name {

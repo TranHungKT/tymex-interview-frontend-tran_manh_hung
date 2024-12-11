@@ -2,7 +2,7 @@ import React from 'react';
 
 import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Form, Input, Row, Select } from 'antd';
+import { Button, Col, Form, Input, Row, Select, Typography } from 'antd';
 
 import SliderPrice from './SliderPrice/SliderPrice';
 import {
@@ -15,9 +15,8 @@ import { filterProducts, ProductState } from '../../../store/reducers/productRed
 import { useAppDispatch, useAppSelector } from '../../../store/store';
 
 export default function SearchFormContainer() {
-  const { searchText, priceRange, tier, theme, createdAt, price } = useAppSelector(
-    (state) => state.products.filter,
-  );
+  const filter = useAppSelector((state) => state.products.filter);
+  const { searchText, priceRange, tier, theme, createdAt, price } = filter;
   const dispatch = useAppDispatch();
 
   const handleSubmit = (values: ProductState['filter']) => {
@@ -26,6 +25,15 @@ export default function SearchFormContainer() {
 
   const handleResetFilter = () => {
     dispatch(filterProducts({}));
+  };
+
+  const handleChangePrice = (values: number[]) => {
+    dispatch(
+      filterProducts({
+        ...filter,
+        priceRange: values,
+      }),
+    );
   };
 
   return (
@@ -49,9 +57,17 @@ export default function SearchFormContainer() {
           style={{ height: '44px' }}
         />
       </Form.Item>
-      <SliderPrice />
+      <SliderPrice onChange={handleChangePrice} />
 
-      <Form.Item label="TIER" layout="vertical" name="tier">
+      <Form.Item
+        label={
+          <Typography.Title level={5} type="secondary">
+            TIER
+          </Typography.Title>
+        }
+        layout="vertical"
+        name="tier"
+      >
         <Select size="large">
           {TIER_SELECTION.map((tierItem) => (
             <Select.Option key={tierItem.id} value={tierItem.value}>
@@ -61,7 +77,15 @@ export default function SearchFormContainer() {
         </Select>
       </Form.Item>
 
-      <Form.Item label="THEME" layout="vertical" name="theme">
+      <Form.Item
+        label={
+          <Typography.Title level={5} type="secondary">
+            THEME
+          </Typography.Title>
+        }
+        layout="vertical"
+        name="theme"
+      >
         <Select size="large">
           {THEME_SELECTION.map((themeItem) => (
             <Select.Option key={themeItem.id} value={themeItem.value}>
@@ -70,7 +94,15 @@ export default function SearchFormContainer() {
           ))}
         </Select>
       </Form.Item>
-      <Form.Item label="TIME" layout="vertical" name="createdAt">
+      <Form.Item
+        label={
+          <Typography.Title level={5} type="secondary">
+            TIME
+          </Typography.Title>
+        }
+        layout="vertical"
+        name="createdAt"
+      >
         <Select size="large">
           {TIME_SELECTION.map((timeItem) => (
             <Select.Option key={timeItem.id} value={timeItem.value}>
@@ -79,7 +111,15 @@ export default function SearchFormContainer() {
           ))}
         </Select>
       </Form.Item>
-      <Form.Item label="PRICE" layout="vertical" name="price">
+      <Form.Item
+        label={
+          <Typography.Title level={5} type="secondary">
+            PRICE
+          </Typography.Title>
+        }
+        layout="vertical"
+        name="price"
+      >
         <Select size="large">
           {PRICE_SELECTION.map((priceItem) => (
             <Select.Option key={priceItem.id} value={priceItem.value}>
@@ -88,21 +128,25 @@ export default function SearchFormContainer() {
           ))}
         </Select>
       </Form.Item>
-      <Row>
-        <Form.Item label={null}>
-          <Button
-            icon={<FontAwesomeIcon icon={faTimesCircle} color="#FBC625" />}
-            variant="text"
-            onClick={handleResetFilter}
-          >
-            Reset filter
-          </Button>
-        </Form.Item>
-        <Form.Item label={null}>
-          <Button type="primary" htmlType="submit">
-            Search
-          </Button>
-        </Form.Item>
+      <Row gutter={16}>
+        <Col>
+          <Form.Item label={null}>
+            <Button
+              icon={<FontAwesomeIcon icon={faTimesCircle} color="#FBC625" />}
+              variant="text"
+              onClick={handleResetFilter}
+            >
+              Reset filter
+            </Button>
+          </Form.Item>
+        </Col>
+        <Col>
+          <Form.Item label={null}>
+            <Button type="primary" htmlType="submit">
+              Search
+            </Button>
+          </Form.Item>
+        </Col>
       </Row>
     </Form>
   );

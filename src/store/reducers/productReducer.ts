@@ -20,6 +20,7 @@ const initialState: ProductState = {
   products: [],
   startAt: 0,
   filter: {
+    category: 'All',
     price: 'asc',
     createdAt: 'desc',
   },

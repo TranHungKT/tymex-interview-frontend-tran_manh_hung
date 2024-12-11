@@ -76,3 +76,19 @@ export const PRICE_SELECTION = [
     id: 2,
   },
 ];
+
+export const MENU_HEADER_URL = {
+  Home: 'home',
+  AboutUs: 'about-us',
+  OurTeams: 'our-teams',
+  MarketplaceRoadmap: 'marketplace-roadmap',
+  WhitePaper: 'white-paper',
+};
+
+export const MENU_HEADER_ITEMS = [
+  { label: 'HOME', key: 1, localUrl: MENU_HEADER_URL.Home },
+  { label: 'ABOUT US', key: 2, localUrl: MENU_HEADER_URL.AboutUs },
+  { label: 'OUR TEAMS', key: 3, localUrl: MENU_HEADER_URL.OurTeams },
+  { label: 'MARKETPLACE ROADMAP', key: 4, localUrl: MENU_HEADER_URL.MarketplaceRoadmap },
+  { label: 'WHITE PAPER', key: 6, localUrl: MENU_HEADER_URL.WhitePaper },
+];

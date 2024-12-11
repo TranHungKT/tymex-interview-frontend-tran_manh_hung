@@ -62,7 +62,10 @@
   "jest": {
     "coveragePathIgnorePatterns": [
       "/src/constants/constants.ts",
-      "/src/store"
+      "/src/store",
+      "/src/models",
+      "/src/index.tsx",
+      "/src/App.tsx"
     ]
   }
 }
