@@ -2,7 +2,7 @@ import React from 'react';
 
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Row, Col, Typography, Layout, Input, Button } from 'antd';
+import { Row, Col, Typography, Layout, Input, Button, Divider } from 'antd';
 import './styles.css';
 export default function LayoutFooter() {
   return (
@@ -60,6 +60,25 @@ export default function LayoutFooter() {
             </Col>
             <Col span={6}>
               <Button type="primary">Subcribe</Button>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+      <Divider />
+      <Row justify="space-between">
+        <Col span={12}>
+          <Typography.Title level={5}>©2023 Tyme - Edit. All Rights reserved.</Typography.Title>
+        </Col>
+        <Col span={6}>
+          <Row gutter={16} justify="end">
+            <Col>
+              <Typography.Title level={5}>Security</Typography.Title>
+            </Col>
+            <Col>
+              <Typography.Title level={5}>Legal</Typography.Title>
+            </Col>
+            <Col>
+              <Typography.Title level={5}>Privacy</Typography.Title>
             </Col>
           </Row>
         </Col>
