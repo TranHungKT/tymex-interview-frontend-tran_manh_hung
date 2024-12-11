@@ -7,16 +7,12 @@ import { ConfigProvider, Layout, theme } from 'antd';
 import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
-<<<<<<< Updated upstream
-import LayoutHeader from './components/LayoutHeader/Header';
-=======
 import LayoutFooter from './components/LayoutFooter/LayoutFooter';
 import LayoutHeader from './components/LayoutHeader/LayoutHeader';
->>>>>>> Stashed changes
 import MarketPlacePage from './pages/MarketPlacePage/MarketPlacePage';
 import { store } from './store/store';
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const queryClient = new QueryClient();
 
 function App() {
@@ -67,7 +63,8 @@ function App() {
                 <Route path="white-paper" element={<MarketPlacePage />} />
               </Routes>
             </Content>
-            <Footer />
+
+            <LayoutFooter />
           </Layout>
         </ConfigProvider>
       </QueryClientProvider>
