@@ -4,7 +4,8 @@ import { Menu } from 'antd';
 
 import { CustomMenu } from '../MenuHeader/styles';
 const { Item } = Menu;
-const items = [
+
+export const MENU_LANGUAGE_ITEMS = [
   { label: 'English', key: 1 },
   { label: 'Vietnamese', key: 2 },
 ];
@@ -12,7 +13,7 @@ const items = [
 export default function MenuLanguage() {
   return (
     <CustomMenu mode="vertical" style={{ backgroundColor: 'transparent' }}>
-      {items.map((item) => (
+      {MENU_LANGUAGE_ITEMS.map((item) => (
         <Item key={item.key}>{item.label}</Item>
       ))}
     </CustomMenu>

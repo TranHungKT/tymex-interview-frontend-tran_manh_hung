@@ -7,7 +7,7 @@ import { Avatar, Card, Col, List, Row, Tag, Typography } from 'antd';
 import { Product } from '../../../models/Product';
 import './styles.css';
 
-interface ProductCardProps {
+export interface ProductCardProps {
   product: Product;
 }
 
